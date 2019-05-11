@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}
+	Lousy Logout Page - {{block.super}}
+{% endblock %}
+
+{% block content %}
+	<div class="content">
+		<p>You have been logged out. want to <a href="{% url 'lousy_login' %}">login</a>? </p>
+	</div>
+{% endblock %}

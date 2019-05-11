@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="content">
+	{% for post in posts %}
+		<h1><a href="{{post.get_absolute_url}}">{{post.title|capfirst}}</a></h1>
+		<p>Published by: <strong>{{post.author.name}}</strong> <i>Date: {{post.pub_date}}</i></p>
+	{% empty %}
+	<p>There are no posts.</p>
+	{% endfor %}
+
+<div class="pagination">
+    <div class="section-inner clearfix">
+        <p>
+            {% if posts.has_previous %}
+                <a href="?page={{ posts.previous_page_number }}">&lt; Prev</a> |
+            {% endif %}
+
+            {% if posts.has_next %}
+                <a href="?page={{ posts.next_page_number }}">Next &gt;</a>
+            {% endif %}
+
+            <span>Page {{ posts.number }} of {{ posts.paginator.num_pages }}</span>
+        </p>
+    </div>
+</div>
+</div>
+
+{% endblock %}

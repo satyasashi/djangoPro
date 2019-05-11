@@ -1,0 +1,21 @@
+{% extends "cadmin/base_admin.html" %}
+
+{% block title %}
+Blog - {{block.super}}
+{% endblock %}
+
+{% block content %}
+<div class="content">
+	<p>Welcome {{request.user.username}}</p>
+	<p>User Details:</p>
+	<ul>
+		<li>Email: {{request.user.email|default:"NA"}}</li>
+		<li>SuperUser: {{request.user.is_superuser}}</li>
+		<li>staff: {{request.user.is_staff}}</li>
+		<li>Date joined: {{request.user.date_joined}}</li>
+		<li>Last login: {{request.user.last_login}}</li>
+	</ul>
+
+	<p><a href="{% url 'logout' %}">Logout</a></p>
+</div>
+{% endblock %}

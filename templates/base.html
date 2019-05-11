@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title %}Home{% endblock %}</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'blog/css/style.css' %}">
+	
+</head>
+<body>
+{% include 'snippets/nav.html' %}
+
+{% block content %}
+{% endblock %}
+
+{% include 'snippets/sidebox.html' %}
+</body>
+</html>
